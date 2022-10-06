@@ -117,34 +117,47 @@ Step 9: Select the hex file from the Kiel program folder and import the program 
 
 ## Kiel - Program for LED blinking ON  and  OFF (blinking)
 Developed by: K.Jhansi
+
 Reference number:212221230045
 
 void delay_ms(unsigned int count)
+
 {
+
   unsigned int j=0,i=0;
 
   for(j=0;j<count;j++)
+
   {
+
     for(i=0;i<3000;i++);
+
   }
+
 }
 
 int main() 
+
 {
 
     PINSEL2 = 0x000000;  //Configure the P1 Pins for GPIO;
+
     IO1DIR = 0xffffffff; //Configure the P1 pins as OUTPUT;
 
   while(1)
+
     {
 
        IO1SET = 0xffffffff;     // Make all the Port pins as high  
+
          delay_ms(1000);
 
+       IO1CLR = 0xffffffff;     // Make all the Port pins as low 
 
-       IO1CLR = 0xffffffff;     // Make all the Port pins as low  
          delay_ms(1000);
+
     }
+    
 }
 
 ## Output screen shots :
