@@ -1,8 +1,10 @@
 # EXPERIMENT--02-Interfacing-a-Digital-output-LED-to-LPC2148-ARM-7-Microcontroller-
 ## Interfacing a Digital output (LED) to LPC2148 ARM 7 Microcontroller 
 
-## Aim: To Interface a Digital output (LED) to LPC2148 ARM 7 and write a blink code 
-## Components required: Proteus ISIS professional suite, Kiel μ vision 5 Development environment 
+## Aim: 
+To Interface a Digital output (LED) to LPC2148 ARM 7 and write a blink code 
+## Components required: 
+Proteus ISIS professional suite, Kiel μ vision 5 Development environment 
 ## Theory 
 The full form of an ARM is an advanced reduced instruction set computer (RISC) machine, and it is a 32-bit processor architecture expanded by ARM holdings. The applications of an ARM processor include several microcontrollers as well as processors. The architecture of an ARM processor was licensed by many corporations for designing ARM processor-based SoC products and CPUs. This allows the corporations to manufacture their products using ARM architecture. Likewise, all main semiconductor companies will make ARM-based SOCs such as Samsung, Atmel, TI etc.
 
@@ -114,9 +116,41 @@ Step 9: Select the hex file from the Kiel program folder and import the program 
 
 
 ## Kiel - Program for LED blinking ON  and  OFF (blinking)
+Developed by: K.Jhansi
+Reference number:212221230045
+
+void delay_ms(unsigned int count)
+{
+  unsigned int j=0,i=0;
+
+  for(j=0;j<count;j++)
+  {
+    for(i=0;i<3000;i++);
+  }
+}
+
+int main() 
+{
+
+    PINSEL2 = 0x000000;  //Configure the P1 Pins for GPIO;
+    IO1DIR = 0xffffffff; //Configure the P1 pins as OUTPUT;
+
+  while(1)
+    {
+
+       IO1SET = 0xffffffff;     // Make all the Port pins as high  
+         delay_ms(1000);
+
+
+       IO1CLR = 0xffffffff;     // Make all the Port pins as low  
+         delay_ms(1000);
+    }
+}
 
 ## Output screen shots :
- 
+![output](output1.png)
+![output](output2.png)
+![output](output3.png)
 ## Result :
 Interfacing a digital output with ARM microcontroller is executed 
 
